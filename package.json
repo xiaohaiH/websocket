@@ -1,0 +1,78 @@
+{
+    "name": "@xiaohaih/websocket",
+    "version": "0.0.1",
+    "description": "对原生websocket进行的包装, 方便项目使用",
+    "main": "dist/index.cjs.js",
+    "jsdelivr": "dist/index.umd.js",
+    "unpkg": "dist/index.umd.js",
+    "module": "src/index.ts",
+    "types": "src/index.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/index.cjs.js",
+            "import": "./src/index.ts",
+            "browser": "./dist/index.esm.js",
+            "types": "./src/index.ts"
+        },
+        "./*": "./*"
+    },
+    "scripts": {
+        "start": "npm run dev",
+        "dev": "vite --host",
+        "build": "vue-tsc && vite build",
+        "preview": "vite preview",
+        "publishing": "pnpm publish --access public",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xiaohaiH/mitt"
+    },
+    "keywords": [
+        "vue3",
+        "websocket"
+    ],
+    "author": "xiaohai",
+    "license": "MIT",
+    "dependencies": {
+        "@xiaohaih/mitt": "^0.0.1",
+        "mitt": "^3.0.1"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^2.8.0",
+        "@types/fs-extra": "^11.0.4",
+        "eslint": "^8.57.0",
+        "esno": "^4.7.0",
+        "fs-extra": "^11.2.0",
+        "lint-staged": "^15.2.2",
+        "mri": "^1.2.0",
+        "typescript": "^5.2.2",
+        "vite": "^5.1.4",
+        "vite-plugin-dts": "^3.6.3",
+        "vite-tsconfig-paths": "^4.3.1",
+        "vue-tsc": "^2.0.13"
+    },
+    "simple-git-hooks": {
+        "pre-commit": "pnpm lint-staged"
+    },
+    "lint-staged": {
+        "*": "eslint --fix"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/",
+        "main": "dist/index.cjs.js",
+        "unpkg": "dist/index.umd.js",
+        "module": "dist/index.esm.js",
+        "types": "dist/src/index.d.ts",
+        "exports": {
+            ".": {
+                "require": "./dist/index.cjs.js",
+                "import": "./src/index.ts",
+                "browser": "./dist/index.esm.js",
+                "types": "./src/index.ts"
+            },
+            "./*": "./*"
+        }
+    }
+}
